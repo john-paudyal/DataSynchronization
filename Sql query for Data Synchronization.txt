@@ -1,0 +1,89 @@
+create database task
+use task
+
+create table Customer(
+	CustomerId int primary key,
+	Name varchar(50),
+	Email varchar(50),
+	Phone bigint
+);
+
+create table Location(
+	LocationId int primary key,
+	CustomerId int,
+	Address varchar(50),
+	foreign key(CustomerId) references Customer(CustomerId)
+);
+
+INSERT INTO Customer (CustomerId, Name, Email, Phone) VALUES
+(1, 'Ram', 'ram@example.com', 1234567890),
+(2, 'Shyam', 'shyam@example.com', 2345678901),
+(3, 'Hari', 'hari@example.com', 3456789012),
+(4, 'Dinesh', 'dinesh@example.com', 4567890123),
+(5, 'Ishwor', 'ishwor@example.com', 5678901234),
+(6, 'Rita', 'rita@example.com', 6789012345),
+(7, 'Geeta', 'geeta@example.com', 7890123456),
+(8, 'Bahadur', 'Bahadur@example.com', 8901234567),
+(9, 'Pawan', 'pawan@example.com', 9012345678),
+(10, 'Sanjay', 'sanjay@example.com', 1123456789),
+(11, 'Bale', 'bale@example.com', 2234567890),
+(12, 'Messi', 'messi@example.com', 3345678901),
+(13, 'queen', 'queen@example.com', 4456789012),
+(14, 'bikalpa', 'bikalpa@example.com', 5567890123),
+(15, 'Bishal', 'Bishal@example.com', 6678901234),
+(16, 'Surakshya', 'surakshya@example.com', 7789012345),
+(17, 'john', 'john@example.com', 8890123456),
+(18, 'milan', 'milan@example.com', 9901234567),
+(19, 'Sita', 'sita@example.com', 1012345678),
+(20, 'Tina', 'tina@example.com', 2123456789),
+(21, 'Uma', 'uma@example.com', 3234567890),
+(22, 'huma', 'huma@example.com', 4345678901),
+(23, 'juma', 'juma@example.com', 5456789012),
+(24, 'dolma', 'dolma@example.com', 6567890123),
+(25, 'John Doe', 'johndoe@example.com', 7678901234),
+(26, 'Barry Allen', 'BarryAllen@example.com', 8789012345);
+
+
+INSERT INTO Location (LocationId, CustomerId, Address) VALUES
+(1, 1, 'Thamel, Kathmandu'),
+(2, 1, 'Patan Durbar Square, Lalitpur'),
+(3, 2, 'Bhaktapur Durbar Square, Bhaktapur'),
+(4, 3, 'Nagarkot, Bhaktapur'),
+(5, 3, 'Pashupatinath Temple, Kathmandu'),
+(6, 3, 'Swayambhunath Stupa, Kathmandu'),
+(7, 4, 'Boudhanath Stupa, Kathmandu'),
+(8, 5, 'Lumbini, Rupandehi'),
+(9, 6, 'Chitwan National Park, Chitwan'),
+(10, 7, 'Pokhara Lakeside, Pokhara'),
+(11, 8, 'Bandipur, Tanahun'),
+(12, 9, 'Dhulikhel, Kavre'),
+(13, 10, 'Gosaikunda, Rasuwa'),
+(14, 11, 'Kakani, Nuwakot'),
+(15, 12, 'Tansen, Palpa'),
+(16, 12, 'Rara Lake, Mugu'),
+(17, 13, 'Bardia National Park, Bardia'),
+(18, 14, 'Dharan, Sunsari'),
+(19, 15, 'Biratnagar, Morang'),
+(20, 15, 'Birgunj, Parsa'),
+(21, 16, 'Butwal, Rupandehi'),
+(22, 17, 'Janakpur, Dhanusa'),
+(23, 18, 'Nepalgunj, Banke'),
+(24, 19, 'Itahari, Sunsari'),
+(25, 20, 'Kathmandu, Kathmandu'),
+(26, 21, 'Khandbari, Sankhuwasabha'),
+(27, 22, 'Syangja, Syangja'),
+(28, 23, 'Nuwakot, Nuwakot'),
+(29, 24, 'Dang, Dang'),
+(30, 24, 'Kaski, Pokhara');
+
+create proc proc_getCustomer
+as
+begin 
+	Select CustomerId,Name,Email,Phone from Customer
+end
+
+create proc proc_getLocation
+as
+begin 
+	Select LocationId,CustomerId,Address from Location
+end
