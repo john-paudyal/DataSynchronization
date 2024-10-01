@@ -1,6 +1,6 @@
 For this appplication to run you need to add data source of ms sql and db browser for sqlite in following files
 1) App.config
-2) DataSynchronization.exe
+2) DataSynchronization.exe(Data Synchronization\bin\Debug)
 
 Also, the tables and database should be created in ms sql. The query is provided for execution.
 
